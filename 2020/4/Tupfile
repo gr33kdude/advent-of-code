@@ -1,0 +1,2 @@
+: main.cpp |> g++ -std=c++17 main.cpp -o main |> main
+: test.cpp |> g++ -std=c++17 test.cpp -o test |> test
