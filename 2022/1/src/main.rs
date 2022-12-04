@@ -5,7 +5,7 @@ use std::fs;
 use std::process;
 
 fn usage(args : &Vec<String>) {
-    println!("Usage: {} <filename>", args[0]);
+    println!("Usage: {} <input.txt>", args[0]);
     process::exit(1);
 }
 
@@ -20,11 +20,9 @@ fn main() {
     let input = fs::read_to_string(filename)
         .expect("Failed to read file");
     let input = input
-        .strip_suffix("\n")
-        .unwrap_or(""); 
+        .trim_end_matches("\n");
 
     let elves = input.split("\n\n");
-    let num_elves = elves.clone().count();
 
     let calories : Vec<usize> = elves
         .map(|s| s.split("\n")
